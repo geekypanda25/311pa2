@@ -1,19 +1,33 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public class ComputerNode {
 
+    private int ID, timestamp;
+    private List<ComputerNode> outNeighbors;
+
+    public ComputerNode(int ID, int timestamp) {
+        this.ID = ID;
+        this.timestamp = timestamp;
+        this.outNeighbors = new LinkedList<>();
+    }
+
 
     public int getID() {
-        return -1; //TODO
+        return ID;
     }
 
 
     public int getTimestamp() {
-        return -1; //TODO
+        return timestamp;
     }
 
 
     public List<ComputerNode> getOutNeighbors() {
-        return null; //TODO
+        return outNeighbors;
     }
+
+    //--------------HELPER METHODS GO BELOW------------------------
+
+
 }

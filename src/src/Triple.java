@@ -9,6 +9,11 @@ public class Triple implements Comparable<Triple> {
         this.tk = tk;
     }
 
+    @Override
+    public int compareTo(Triple o) {
+        return 0; //TODO
+    }
+
     public ComputerNode getCi() {
         return Ci;
     }
@@ -19,10 +24,5 @@ public class Triple implements Comparable<Triple> {
 
     public int getTk() {
         return tk;
-    }
-
-    @Override
-    public int compareTo(Triple o) {
-        return 0; //TODO
     }
 }    

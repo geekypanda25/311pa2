@@ -1,7 +1,17 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 public class CommunicationsMonitor {
 
-    public CommunicationsMonitor(){
+    private List<Triple> R;
+    private int numComputers;
+    private HashMap<Integer, List<ComputerNode>> hashMap;
 
+    public CommunicationsMonitor(){
+        R = new LinkedList<Triple>();
+        hashMap = new HashMap<Integer, List<ComputerNode>>();
+        numComputers = 0;
     }
 
     /**
