@@ -1,9 +1,9 @@
 public class Triple implements Comparable<Triple> {
 
-    private ComputerNode Ci, Cj;
+    private int Ci, Cj;
     private int tk;
 
-    public Triple(ComputerNode Ci, ComputerNode Cj, int tk) {
+    public Triple(int Ci, int Cj, int tk) {
         this.Ci = Ci;
         this.Cj = Cj;
         this.tk = tk;
@@ -14,11 +14,11 @@ public class Triple implements Comparable<Triple> {
         return 0; //TODO
     }
 
-    public ComputerNode getCi() {
+    public int getCi() {
         return Ci;
     }
 
-    public ComputerNode getCj() {
+    public int getCj() {
         return Cj;
     }
 
