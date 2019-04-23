@@ -101,4 +101,24 @@ public class CommunicationsMonitor {
         }
     }
 
+    /**
+     * Creates an infected path starting from start node to end node
+     * @param start
+     * @param end
+     * @return
+     */
+    private List<ComputerNode> createInfectedPath(ComputerNode start, ComputerNode end) {
+
+        ComputerNode curNode = end;
+        List<ComputerNode> infectedPath = new LinkedList<ComputerNode>();
+
+        while(curNode != start) {
+            infectedPath.add(0, curNode);
+            curNode = curNode.getPrev();
+        }
+
+        infectedPath.add(0, start);
+        return infectedPath;
+    }
+
 }

@@ -55,6 +55,8 @@ public class ComputerNode {
 
     public Color getColor(){return color;}
 
+    public ComputerNode getPrev(){return prev;}
+
     public int getCC(){return cc;}
 
     /**
