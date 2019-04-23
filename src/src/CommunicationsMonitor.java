@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,5 +38,67 @@ public class CommunicationsMonitor {
         }
     }
 
-    
+    public void createGraph(){
+        if (graphCreated == false){
+
+            graphCreated = true;
+
+        }
+    }
+
+
+    //--------------HELPER METHODS GO BELOW------------------------
+
+    /**
+     * Return the communication list
+     * @return - List of connected computers and timestamps
+     */
+    public List<Triple> getR(){
+        return R;
+    }
+
+
+    /**
+     * Recursive helper for DFS
+     *
+     * @param node node hit at this level of recursion
+     */
+    private void DFSVisit(ComputerNode node){
+
+        node.setColor(Color.GRAY);
+        for(ComputerNode neighbor : node.getOutNeighbors()){
+            neighbor.setCC(node.getCC());
+            if (neighbor.getColor() == Color.WHITE){
+                neighbor.setPrev(node);
+                DFSVisit(neighbor);
+            }
+        }
+        node.setColor(Color.BLACK);
+    }
+
+    /**
+     * DFS but taking in a HashMap version of the graph
+     * @param graph
+     */
+    public void DFS(HashMap<Integer, List<ComputerNode>> graph){
+
+        for (List<ComputerNode> list : graph.values()){
+            for(ComputerNode node : list){
+                node.setColor(Color.WHITE);
+                node.setPrev(null);
+            }
+        }
+
+        int ctr = 1;
+        for (List<ComputerNode> list : graph.values()){
+            for(ComputerNode node : list){
+                if (node.getColor() == Color.WHITE){
+                    node.setCC(ctr);
+                    ctr++;
+                    DFSVisit(node);
+                }
+            }
+        }
+    }
+
 }
